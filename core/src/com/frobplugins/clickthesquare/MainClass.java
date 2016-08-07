@@ -17,7 +17,6 @@ public class MainClass extends Game implements ApplicationListener {
     float screen_width;
     float screen_height;
     adController adController;
-    SkinSaver skinSaver;
 
     public MainClass(adController adController){
         this.adController = adController;
@@ -25,10 +24,6 @@ public class MainClass extends Game implements ApplicationListener {
 
     @Override
     public void create() {
-        skinSaver = new SkinSaver();
-        if(SkinSaver.getSkin() == 0){
-            SkinSaver.setDefaultSkin();
-        }
         screen_width = Gdx.graphics.getWidth();
         screen_height = Gdx.graphics.getHeight();
         camera = new OrthographicCamera();

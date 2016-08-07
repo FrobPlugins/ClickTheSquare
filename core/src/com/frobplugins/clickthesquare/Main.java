@@ -27,6 +27,7 @@ public class Main implements Screen {
 	GlyphLayout addScoreText;
 	GlyphLayout scoreToGo;
 	Viewport viewport;
+	private SkinSaver ss;
 	private HighScoreManager hsm;
 	private CurrentScoreManager csm;
 	private int StarterScore = 50;
@@ -43,6 +44,7 @@ public class Main implements Screen {
 		score = 0;
 		hsm = new HighScoreManager();
 		csm = new CurrentScoreManager();
+		ss = new SkinSaver();
 		timer = 30;
 		viewport = new StretchViewport(main.screen_width, main.screen_height, main.camera);
 		viewport.apply();

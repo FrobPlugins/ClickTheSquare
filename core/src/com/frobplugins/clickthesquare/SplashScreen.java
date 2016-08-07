@@ -16,6 +16,7 @@ public class SplashScreen implements Screen {
     private Texture texture = new Texture(Gdx.files.internal("assets/Splash2.png"));
     private Image splashImage = new Image(texture);
     private Stage stage;
+    private SkinSaver ss;
     adController adController;
 
 
@@ -65,6 +66,10 @@ public class SplashScreen implements Screen {
                         Actions.delay(0f), Actions.run(new Runnable() {
                     public void run() {
                         Assets.loadAssets();
+                        ss = new SkinSaver();
+                        if(ss.getSkin() == 0){
+                            ss.setDefaultSkin();
+                        }
                         if(SkinSaver.getSkin() == SkinList.gold){
                             Assets.loadSkinGold();
                         }
