@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
- * Created by Gebruiker on 6-2-2016.
+ * This app is copyrighted
  */
 public class Assets {
 
