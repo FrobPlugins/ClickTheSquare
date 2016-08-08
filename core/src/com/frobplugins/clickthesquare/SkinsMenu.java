@@ -7,9 +7,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
-/**
- * Created by Gebruiker on 6-5-2016.
- */
 public class SkinsMenu implements Screen {
 
     MainClass main;
@@ -20,6 +17,8 @@ public class SkinsMenu implements Screen {
     float tileSizeY;
     float boardOffsetY;
     float boardOffsetX;
+
+    public HighScoreManager hsm = new HighScoreManager();
 
     public SkinsMenu(MainClass main){
         this.main = main;
@@ -95,41 +94,64 @@ public class SkinsMenu implements Screen {
                 for(int y=0;y<buttons[0].length;y++){
                     if(buttons[x][y].sprite.contains(Gdx.input.getX(), Gdx.input.getY())) {
                         if (buttons[x][y].ID == IDList.Button_off_gold) {
+                            if(hsm.getHighScoreHard() > 14) {
+                                SkinSaver.setSkin(SkinList.gold);
+                                Assets.loadSkinGold();
+                                Assets.unloadSkins(SkinList.gold, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
 
-                            SkinSaver.setSkin(SkinList.gold);
-                            Assets.loadSkinGold();
-                            Assets.unloadSkins(SkinList.gold, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_green) {
-                            SkinSaver.setSkin(SkinList.green);
-                            Assets.loadSkinGreen();
-                            Assets.unloadSkins(SkinList.green, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreEasy() > 9){
+                                SkinSaver.setSkin(SkinList.green);
+                                Assets.loadSkinGreen();
+                                Assets.unloadSkins(SkinList.green, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_light_green) {
-                            SkinSaver.setSkin(SkinList.light_green);
-                            Assets.loadSkinLightGreen();
-                            Assets.unloadSkins(SkinList.light_green, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreNormal() > 9) {
+                                SkinSaver.setSkin(SkinList.light_green);
+                                Assets.loadSkinLightGreen();
+                                Assets.unloadSkins(SkinList.light_green, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_metal) {
-                            SkinSaver.setSkin(SkinList.metal);
-                            Assets.loadSkinMetal();
-                            Assets.unloadSkins(SkinList.metal, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreExpert() > 24) {
+                                SkinSaver.setSkin(SkinList.metal);
+                                Assets.loadSkinMetal();
+                                Assets.unloadSkins(SkinList.metal, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_nature) {
-                            SkinSaver.setSkin(SkinList.nature);
-                            Assets.loadSkinNature();
-                            Assets.unloadSkins(SkinList.nature, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreExpert() > 19) {
+                                SkinSaver.setSkin(SkinList.nature);
+                                Assets.loadSkinNature();
+                                Assets.unloadSkins(SkinList.nature, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_purple) {
-                            SkinSaver.setSkin(SkinList.purple);
-                            Assets.loadSkinPurple();
-                            Assets.unloadSkins(SkinList.purple, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreNormal() > 14) {
+                                SkinSaver.setSkin(SkinList.purple);
+                                Assets.loadSkinPurple();
+                                Assets.unloadSkins(SkinList.purple, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                         if (buttons[x][y].ID == IDList.Button_off) {
                             SkinSaver.setSkin(SkinList.water);
@@ -138,10 +160,14 @@ public class SkinsMenu implements Screen {
                             ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
                         }
                         if (buttons[x][y].ID == IDList.Button_off_wood) {
-                            SkinSaver.setSkin(SkinList.wood);
-                            Assets.loadSkinWood();
-                            Assets.unloadSkins(SkinList.wood, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            if(hsm.getHighScoreHard() > 19) {
+                                SkinSaver.setSkin(SkinList.wood);
+                                Assets.loadSkinWood();
+                                Assets.unloadSkins(SkinList.wood, oldSkin);
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            }else{
+
+                            }
                         }
                     }
                 }
