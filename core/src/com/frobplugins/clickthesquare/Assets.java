@@ -55,17 +55,17 @@ public class Assets {
 
 
     public static void loadAssets() {
-        button_on_red = new Texture(Gdx.files.internal("assets/water/Button_on_red.gif"));
-        button_off_red = new Texture(Gdx.files.internal("assets/water/Button_off_red.gif"));
+        button_on_red = new Texture(Gdx.files.internal("assets/water/Button_on_red.png"));
+        button_off_red = new Texture(Gdx.files.internal("assets/water/Button_off_red.png"));
 
-        button_off_gold = new Texture(Gdx.files.internal("assets/gold/Button_off.gif"));
-        button_off_green = new Texture(Gdx.files.internal("assets/green/Button_off.gif"));
-        button_off_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Button_off.gif"));
-        button_off_metal = new Texture(Gdx.files.internal("assets/metal/Button_off.gif"));
-        button_off_nature = new Texture(Gdx.files.internal("assets/nature/Button_off.gif"));
-        button_off_purple = new Texture(Gdx.files.internal("assets/purple/Button_off.gif"));
-        button_off = new Texture(Gdx.files.internal("assets/water/Button_off.gif"));
-        button_off_wood = new Texture(Gdx.files.internal("assets/wood/Button_off.gif"));
+        button_off_gold = new Texture(Gdx.files.internal("assets/gold/Button_off.png"));
+        button_off_green = new Texture(Gdx.files.internal("assets/green/Button_off.png"));
+        button_off_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Button_off.png"));
+        button_off_metal = new Texture(Gdx.files.internal("assets/metal/Button_off.png"));
+        button_off_nature = new Texture(Gdx.files.internal("assets/nature/Button_off.png"));
+        button_off_purple = new Texture(Gdx.files.internal("assets/purple/Button_off.png"));
+        button_off = new Texture(Gdx.files.internal("assets/water/Button_off.png"));
+        button_off_wood = new Texture(Gdx.files.internal("assets/wood/Button_off.png"));
 
         sound_died = Gdx.audio.newSound(Gdx.files.internal("assets/Died.wav"));
         sound_count = Gdx.audio.newSound(Gdx.files.internal("assets/Count.wav"));
@@ -73,8 +73,8 @@ public class Assets {
     }
 
     public static void loadSkinGold(){
-        background_gold = new Texture(Gdx.files.internal("assets/gold/Background.gif"));
-        button_on_gold = new Texture(Gdx.files.internal("assets/gold/Button_on.gif"));
+        background_gold = new Texture(Gdx.files.internal("assets/gold/Background.jpg"));
+        button_on_gold = new Texture(Gdx.files.internal("assets/gold/Button_on.png"));
 
         sprite_background_gold = new Sprite(background_gold);
         sprite_background_gold.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -82,8 +82,8 @@ public class Assets {
     }
 
     public static void loadSkinGreen(){
-        background_green = new Texture(Gdx.files.internal("assets/green/Background.gif"));
-        button_on_green = new Texture(Gdx.files.internal("assets/green/Button_on.gif"));
+        background_green = new Texture(Gdx.files.internal("assets/green/Background.jpg"));
+        button_on_green = new Texture(Gdx.files.internal("assets/green/Button_on.png"));
 
         sprite_background_green = new Sprite(background_green);
         sprite_background_green.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -91,8 +91,8 @@ public class Assets {
     }
 
     public static void loadSkinLightGreen(){
-        background_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Background.gif"));
-        button_on_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Button_on.gif"));
+        background_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Background.jpg"));
+        button_on_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Button_on.png"));
 
         sprite_background_light_green = new Sprite(background_light_green);
         sprite_background_light_green.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -100,8 +100,8 @@ public class Assets {
     }
 
     public static void loadSkinMetal(){
-        background_metal = new Texture(Gdx.files.internal("assets/metal/Background.gif"));
-        button_on_metal = new Texture(Gdx.files.internal("assets/metal/Button_on.gif"));
+        background_metal = new Texture(Gdx.files.internal("assets/metal/Background.jpg"));
+        button_on_metal = new Texture(Gdx.files.internal("assets/metal/Button_on.png"));
 
         sprite_background_metal = new Sprite(background_metal);
         sprite_background_metal.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -109,8 +109,8 @@ public class Assets {
     }
 
     public static void loadSkinNature(){
-        background_nature = new Texture(Gdx.files.internal("assets/nature/Background.gif"));
-        button_on_nature = new Texture(Gdx.files.internal("assets/nature/Button_on.gif"));
+        background_nature = new Texture(Gdx.files.internal("assets/nature/Background.jpg"));
+        button_on_nature = new Texture(Gdx.files.internal("assets/nature/Button_on.png"));
 
         sprite_background_nature = new Sprite(background_nature);
         sprite_background_nature.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -118,8 +118,8 @@ public class Assets {
     }
 
     public static void loadSkinPurple(){
-        background_purple = new Texture(Gdx.files.internal("assets/purple/Background.gif"));
-        button_on_purple = new Texture(Gdx.files.internal("assets/purple/Button_on.gif"));
+        background_purple = new Texture(Gdx.files.internal("assets/purple/Background.jpg"));
+        button_on_purple = new Texture(Gdx.files.internal("assets/purple/Button_on.png"));
 
         sprite_background_purple = new Sprite(background_purple);
         sprite_background_purple.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -127,8 +127,8 @@ public class Assets {
     }
 
     public static void loadSkinWater(){
-        background = new Texture(Gdx.files.internal("assets/water/Background.gif"));
-        button_on = new Texture(Gdx.files.internal("assets/water/Button_on.gif"));
+        background = new Texture(Gdx.files.internal("assets/water/Background.jpg"));
+        button_on = new Texture(Gdx.files.internal("assets/water/Button_on.png"));
 
         sprite_background = new Sprite(background);
         sprite_background.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -137,8 +137,8 @@ public class Assets {
     }
 
     public static void loadSkinWood(){
-        background_wood = new Texture(Gdx.files.internal("assets/wood/Background.gif"));
-        button_on_wood = new Texture(Gdx.files.internal("assets/wood/Button_on.gif"));
+        background_wood = new Texture(Gdx.files.internal("assets/wood/Background.jpg"));
+        button_on_wood = new Texture(Gdx.files.internal("assets/wood/Button_on.png"));
 
         sprite_background_wood = new Sprite(background_wood);
         sprite_background_wood.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
