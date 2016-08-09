@@ -1,9 +1,11 @@
 package com.frobplugins.clickthesquare;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
@@ -12,7 +14,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-public class AndroidLauncher extends AndroidApplication implements adController {
+public class AndroidLauncher extends AndroidApplication implements adController, AndroidInterfaces{
 	private static final String TAG = "AndroidLauncher";
 	protected AdView adView;
 
@@ -73,6 +75,16 @@ public class AndroidLauncher extends AndroidApplication implements adController 
 				AdRequest.Builder builder = new AdRequest.Builder();
 				AdRequest ad = builder.build();
 				adView.loadAd(ad);
+			}
+		});
+	}
+
+	@Override
+	public void toast(final String t) {
+		handler.post(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(AndroidLauncher.this, t, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
