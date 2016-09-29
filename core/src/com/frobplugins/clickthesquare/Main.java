@@ -210,9 +210,9 @@ public class Main implements Screen {
 		generateNumber(delta);
 		Fonts.font3.draw(main.batch, glyphLayout, ((main.screen_width - w) / 2), main.screen_height / 100);
 		Fonts.font3.draw(main.batch, glyphLayout2, ((main.screen_width - w2) / 2), main.screen_height / 15);
-		Fonts.font1.draw(main.batch, scoreToGo, ((main.screen_width - scoreToGo.width)), 0);
+		Fonts.font1.draw(main.batch, scoreToGo, ((main.screen_width - scoreToGo.width)-scoreToGo.width/4), 0 + (buttons[0][0].y/2));
 		if(showText == true){
-			Fonts.font1.draw(main.batch, " +28 sec.", (main.screen_width / 2) + (main.screen_width/6), main.screen_height / 15);
+			Fonts.font1.draw(main.batch, " +25 sec.", (main.screen_width / 2) + (main.screen_width/6), main.screen_height / 15);
 		}
 		main.batch.end();
 		if(score >= 1) {
@@ -253,7 +253,7 @@ public class Main implements Screen {
 			StarterScore += 50;
 			scoreToGo.setText(Fonts.font1, "Goal: " + StarterScore);
 			Assets.sound_addTime.play(1.0f);
-			timer += 28;
+			timer += 25;
 			showText = true;
 		}
 		if(showTimer >= 3f){

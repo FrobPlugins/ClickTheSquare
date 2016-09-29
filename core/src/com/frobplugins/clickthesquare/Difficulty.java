@@ -26,11 +26,10 @@ public class Difficulty implements Screen {
     GlyphLayout normal;
     GlyphLayout hard;
     GlyphLayout expert;
-    Rectangle rect_easy, rect_normal, rect_hard, rect_expert;
+    Rectangle rect_easy, rect_normal, rect_hard;
     static int EASY = 1;
     static int NORMAL = 2;
     static int HARD = 3;
-    static int EXPERT = 4;
     static int Difficulty = 0;
     static boolean selectedDifficulty = false;
     Buttons[][] buttons;
@@ -46,7 +45,7 @@ public class Difficulty implements Screen {
     @Override
     public void show() {
         main.camera.update();
-        buttons = new Buttons[1][4];
+        buttons = new Buttons[1][3];
         tileSize = Gdx.graphics.getWidth() / buttons[0].length;
         boardOffsetY = (Gdx.graphics.getHeight() - (tileSize * buttons[0].length)) / 2;
         boardOffsetX = (Gdx.graphics.getWidth() - ((tileSize*3) * buttons.length)) / 2;
@@ -82,18 +81,15 @@ public class Difficulty implements Screen {
         easy = new GlyphLayout();
         normal = new GlyphLayout();
         hard = new GlyphLayout();
-        expert = new GlyphLayout();
 
         glyphLayout.setText(Fonts.font2, "Difficulty");
         easy.setText(Fonts.font5, "EASY");
         normal.setText(Fonts.font5, "NORMAL");
         hard.setText(Fonts.font5, "HARD");
-        expert.setText(Fonts.font5, "EXPERT");
 
         rect_easy = new Rectangle((buttons[0][0].x), buttons[0][0].y, buttons[0][0].x + buttons[0][0].width, buttons[0][0].y + buttons[0][0].height);
         rect_normal = new Rectangle((buttons[0][1].x), buttons[0][1].y, buttons[0][1].x + buttons[0][1].width, buttons[0][1].y + buttons[0][1].height);
         rect_hard = new Rectangle((buttons[0][2].x), buttons[0][2].y, buttons[0][2].x + buttons[0][2].width, buttons[0][2].y + buttons[0][2].height);
-        rect_expert = new Rectangle((buttons[0][3].x), buttons[0][3].y, buttons[0][3].x + buttons[0][3].width, buttons[0][3].y + buttons[0][3].height);
 
         Gdx.input.setCatchBackKey(true);
     }
@@ -142,8 +138,7 @@ public class Difficulty implements Screen {
             Fonts.font5.draw(main.batch, easy, ((main.screen_width - easy.width) / 2), ((buttons[0][0].y + buttons[0][0].height) - (buttons[0][0].height/2)) - easy.height/2);
             Fonts.font5.draw(main.batch, normal, ((main.screen_width - normal.width)/2), ((buttons[0][1].y + buttons[0][1].height) - (buttons[0][1].height/2)) - normal.height/2);
             Fonts.font5.draw(main.batch, hard, ((main.screen_width - hard.width)/2), ((buttons[0][2].y + buttons[0][2].height) - (buttons[0][2].height/2)) - hard.height/2);
-            Fonts.font5.draw(main.batch, expert, ((main.screen_width - expert.width) / 2), ((buttons[0][3].y + buttons[0][3].height) - (buttons[0][3].height/2)) - expert.height/2);
-        main.batch.end();
+            main.batch.end();
 
         if(Gdx.input.justTouched()){
             if(rect_easy.contains(Gdx.input.getX(), Gdx.input.getY())){
@@ -167,13 +162,6 @@ public class Difficulty implements Screen {
                 selectedDifficulty = true;
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
             }
-            if(rect_expert.contains(Gdx.input.getX(), Gdx.input.getY())) {
-                setExpert();
-                Assets.sound_addTime.play(1.0f);
-                HighScoreManager.setDifficulty(3);
-                selectedDifficulty = true;
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
-            }
         }
         if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
             ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
@@ -189,10 +177,6 @@ public class Difficulty implements Screen {
     public static void setHard(){
         Difficulty = HARD;
     }
-    public static void setExpert(){
-        Difficulty = EXPERT;
-    }
-
     public static int getDifficulty(){
         return Difficulty;
     }
