@@ -262,8 +262,8 @@ public class Main implements Screen {
 		}else if(showText == true){
 			showTimer += delta;
 		}
-		if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-			((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+		if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
+			System.out.println("Nothing should happen!");
 		}
 	}
 

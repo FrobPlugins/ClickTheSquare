@@ -165,7 +165,7 @@ public class MenuDifficulty implements Screen {
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
             }
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
             ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
         }
     }

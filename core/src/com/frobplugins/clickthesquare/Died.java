@@ -140,7 +140,7 @@ public class Died implements Screen {
                 }
             }
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
             ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
         }
     }
