@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class SplashScreen implements Screen {
-
     final MainClass main;
     private Texture texture = new Texture(Gdx.files.internal("assets/Splash2.png"));
     private Image splashImage = new Image(texture);
@@ -37,8 +36,8 @@ public class SplashScreen implements Screen {
                     public void run() {
                         Assets.loadAssets();
                         ss = new SkinSaver();
-                        if(ss.getSkin() == 0){
-                            ss.setDefaultSkin();
+                        if(SkinSaver.getSkin() == 0){
+                            SkinSaver.setDefaultSkin();
                         }
                         if(SkinSaver.getSkin() == SkinList.gold){
                             Assets.loadSkinGold();
@@ -70,7 +69,7 @@ public class SplashScreen implements Screen {
                 })));
     }
 
-    public void dispose() {
+    public void dispose(){
         texture.dispose();
         stage.dispose();
     }
