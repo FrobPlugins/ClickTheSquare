@@ -87,9 +87,9 @@ public class Difficulty implements Screen {
         normal.setText(Fonts.font5, "NORMAL");
         hard.setText(Fonts.font5, "HARD");
 
-        rect_easy = new Rectangle((buttons[0][0].x), buttons[0][0].y, buttons[0][0].x + buttons[0][0].width, buttons[0][0].y + buttons[0][0].height);
-        rect_normal = new Rectangle((buttons[0][1].x), buttons[0][1].y, buttons[0][1].x + buttons[0][1].width, buttons[0][1].y + buttons[0][1].height);
-        rect_hard = new Rectangle((buttons[0][2].x), buttons[0][2].y, buttons[0][2].x + buttons[0][2].width, buttons[0][2].y + buttons[0][2].height);
+        rect_easy = new Rectangle((buttons[0][0].x), buttons[0][0].y, buttons[0][0].width, buttons[0][0].height);
+        rect_normal = new Rectangle((buttons[0][1].x), buttons[0][1].y, buttons[0][1].width, buttons[0][1].height);
+        rect_hard = new Rectangle((buttons[0][2].x), buttons[0][2].y, buttons[0][2].width, buttons[0][2].height);
 
         Gdx.input.setCatchBackKey(true);
     }
@@ -100,6 +100,7 @@ public class Difficulty implements Screen {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         float w = glyphLayout.width;
+
         main.batch.setProjectionMatrix(main.camera.combined);
         main.batch.begin();
 
@@ -146,6 +147,7 @@ public class Difficulty implements Screen {
                 Assets.sound_addTime.play(1.0f);
                 HighScoreManager.setDifficulty(0);
                 selectedDifficulty = true;
+                System.out.println("Set Easy");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
             }
             if(rect_normal.contains(Gdx.input.getX(), Gdx.input.getY())){
@@ -153,6 +155,7 @@ public class Difficulty implements Screen {
                 Assets.sound_addTime.play(1.0f);
                 HighScoreManager.setDifficulty(1);
                 selectedDifficulty = true;
+                System.out.println("Set Normal");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
             }
             if(rect_hard.contains(Gdx.input.getX(), Gdx.input.getY())){
@@ -160,6 +163,7 @@ public class Difficulty implements Screen {
                 Assets.sound_addTime.play(1.0f);
                 HighScoreManager.setDifficulty(2);
                 selectedDifficulty = true;
+                System.out.println("Set Hard");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
             }
         }

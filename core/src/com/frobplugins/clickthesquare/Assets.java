@@ -58,12 +58,12 @@ public class Assets {
         button_on_red = new Texture(Gdx.files.internal("assets/water/Button_on_red.png"));
         button_off_red = new Texture(Gdx.files.internal("assets/water/Button_off_red.png"));
 
-        button_off_gold = new Texture(Gdx.files.internal("assets/gold/Button_off.png"));
-        button_off_green = new Texture(Gdx.files.internal("assets/green/Button_off.png"));
+        button_off_gold = new Texture(Gdx.files.internal("assets/gold/button_off.png"));
+        button_off_green = new Texture(Gdx.files.internal("assets/green/button_off.png"));
         button_off_light_green = new Texture(Gdx.files.internal("assets/lightgreen/Button_off.png"));
         button_off_metal = new Texture(Gdx.files.internal("assets/metal/Button_off.png"));
         button_off_nature = new Texture(Gdx.files.internal("assets/nature/Button_off.png"));
-        button_off_purple = new Texture(Gdx.files.internal("assets/purple/Button_off.png"));
+        button_off_purple = new Texture(Gdx.files.internal("assets/purple/button_off.png"));
         button_off = new Texture(Gdx.files.internal("assets/water/Button_off.png"));
         button_off_wood = new Texture(Gdx.files.internal("assets/wood/Button_off.png"));
 
