@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Rectangle;
 public class MainMenu implements Screen {
 
     MainClass main;
+    AndroidOnlyInterface aoi;
     Buttons[][] buttons;
     float tileSizeY;
     float tileSizeX;
@@ -25,8 +26,9 @@ public class MainMenu implements Screen {
     Rectangle difficulty_rect;
     Rectangle SkinSelector_rect;
 
-    public MainMenu(MainClass main){
+    public MainMenu(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
+        aoi = pAOI;
         buttons = new Buttons[1][3];
 
         tileSizeY = (Gdx.graphics.getWidth() / buttons[0].length) / 1.5f;
@@ -130,13 +132,13 @@ public class MainMenu implements Screen {
         main.batch.end();
         if(Gdx.input.justTouched()) {
             if (play_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new Main(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new Main(main, aoi));
             }
             if (difficulty_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new MenuDifficulty(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new MenuDifficulty(main, aoi));
             }
             if (SkinSelector_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new SkinsMenu(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new SkinsMenu(main, aoi));
             }
         }
         if(Gdx.input.isKeyPressed(Input.Keys.BACK)){

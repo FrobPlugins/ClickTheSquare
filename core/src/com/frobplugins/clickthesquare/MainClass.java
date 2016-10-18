@@ -11,15 +11,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * Created by Gebruiker on 2-2-2016.
  */
 public class MainClass extends Game implements ApplicationListener {
-
+    AndroidOnlyInterface aoi;
     OrthographicCamera camera;
     SpriteBatch batch;
     float screen_width;
     float screen_height;
     adController adController;
 
-    public MainClass(adController adController){
+    public MainClass(adController adController, AndroidOnlyInterface pAOI){
         this.adController = adController;
+        aoi = pAOI;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class MainClass extends Game implements ApplicationListener {
         camera = new OrthographicCamera();
         camera.setToOrtho(true, screen_width, screen_height);
         batch = new SpriteBatch();
-        setScreen(new SplashScreen(this, adController));
+        setScreen(new SplashScreen(this, adController, aoi));
     }
 
     @Override

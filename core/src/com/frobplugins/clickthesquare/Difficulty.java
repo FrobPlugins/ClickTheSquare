@@ -18,7 +18,7 @@ import com.badlogic.gdx.math.Vector3;
  * Created by Gebruiker on 2-2-2016.
  */
 public class Difficulty implements Screen {
-
+    AndroidOnlyInterface aoi;
     Texture background;
     MainClass main;
     GlyphLayout glyphLayout;
@@ -38,8 +38,9 @@ public class Difficulty implements Screen {
     float boardOffsetX;
     float boardOffsetY;
 
-    public Difficulty(MainClass main){
+    public Difficulty(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
+        aoi = pAOI;
     }
 
     @Override
@@ -148,7 +149,7 @@ public class Difficulty implements Screen {
                 HighScoreManager.setDifficulty(0);
                 selectedDifficulty = true;
                 System.out.println("Set Easy");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
             }
             if(rect_normal.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setNormal();
@@ -156,7 +157,7 @@ public class Difficulty implements Screen {
                 HighScoreManager.setDifficulty(1);
                 selectedDifficulty = true;
                 System.out.println("Set Normal");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
             }
             if(rect_hard.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setHard();
@@ -164,11 +165,11 @@ public class Difficulty implements Screen {
                 HighScoreManager.setDifficulty(2);
                 selectedDifficulty = true;
                 System.out.println("Set Hard");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main , aoi));
             }
         }
         if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-            ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
         }
     }
 

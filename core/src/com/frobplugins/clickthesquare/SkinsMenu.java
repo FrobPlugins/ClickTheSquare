@@ -20,8 +20,11 @@ public class SkinsMenu implements Screen{
 
     public HighScoreManager hsm = new HighScoreManager();
 
-    public SkinsMenu(MainClass main){
+    AndroidOnlyInterface aoi;
+
+    public SkinsMenu(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
+        aoi = pAOI;
     }
 
     @Override
@@ -98,9 +101,9 @@ public class SkinsMenu implements Screen{
                                 SkinSaver.setSkin(SkinList.gold);
                                 Assets.loadSkinGold();
                                 Assets.unloadSkins(SkinList.gold, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on hard has to be 15 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_green) {
@@ -108,9 +111,9 @@ public class SkinsMenu implements Screen{
                                 SkinSaver.setSkin(SkinList.green);
                                 Assets.loadSkinGreen();
                                 Assets.unloadSkins(SkinList.green, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on easy has to be 10 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_light_green) {
@@ -118,29 +121,29 @@ public class SkinsMenu implements Screen{
                                 SkinSaver.setSkin(SkinList.light_green);
                                 Assets.loadSkinLightGreen();
                                 Assets.unloadSkins(SkinList.light_green, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on normal has to be 10 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_metal) {
-                            if(hsm.getHighScoreExpert() > 24) {
+                            if(hsm.getHighScoreHard() > 24) {
                                 SkinSaver.setSkin(SkinList.metal);
                                 Assets.loadSkinMetal();
                                 Assets.unloadSkins(SkinList.metal, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on hard has to be 25 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_nature) {
-                            if(hsm.getHighScoreExpert() > 19) {
+                            if(hsm.getHighScoreHard() > 19) {
                                 SkinSaver.setSkin(SkinList.nature);
                                 Assets.loadSkinNature();
                                 Assets.unloadSkins(SkinList.nature, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on hard has to be 20 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_purple) {
@@ -148,25 +151,25 @@ public class SkinsMenu implements Screen{
                                 SkinSaver.setSkin(SkinList.purple);
                                 Assets.loadSkinPurple();
                                 Assets.unloadSkins(SkinList.purple, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on normal has to be 15 at least");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off) {
                             SkinSaver.setSkin(SkinList.water);
                             Assets.loadSkinWater();
                             Assets.unloadSkins(SkinList.water, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                         }
                         if (buttons[x][y].ID == IDList.Button_off_wood) {
                             if(hsm.getHighScoreHard() > 19) {
                                 SkinSaver.setSkin(SkinList.wood);
                                 Assets.loadSkinWood();
                                 Assets.unloadSkins(SkinList.wood, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                             }else{
-
+                                aoi.toast("Your highscore on hard has to be 20 at least");
                             }
                         }
                     }
@@ -175,7 +178,7 @@ public class SkinsMenu implements Screen{
         }
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
-            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
         }
     }
 

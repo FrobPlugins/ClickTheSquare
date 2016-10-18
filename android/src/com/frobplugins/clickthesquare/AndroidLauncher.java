@@ -1,6 +1,5 @@
 package com.frobplugins.clickthesquare;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,16 +13,17 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-public class AndroidLauncher extends AndroidApplication implements adController, AndroidInterfaces{
+public class AndroidLauncher extends AndroidApplication implements adController, AndroidInterfaces, AndroidOnlyInterface{
 	private static final String TAG = "AndroidLauncher";
 	protected AdView adView;
+	final AndroidLauncher context = this;
 
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		RelativeLayout layout = new RelativeLayout(this);
-		View gameView = initializeForView(new MainClass(null), config);
+		View gameView = initializeForView(new MainClass(null, this.context), config);
 		layout.addView(gameView);
 		adView = new AdView(this);
 
@@ -84,7 +84,7 @@ public class AndroidLauncher extends AndroidApplication implements adController,
 		handler.post(new Runnable() {
 			@Override
 			public void run() {
-				Toast.makeText(AndroidLauncher.this, t, Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, t, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}

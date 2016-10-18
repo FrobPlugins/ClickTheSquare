@@ -16,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
  * Created by Gebruiker on 2-2-2016.
  */
 public class Died implements Screen {
-
+    AndroidOnlyInterface aoi;
     Texture background;
     MainClass main;
     Buttons[][] buttons;
@@ -30,8 +30,9 @@ public class Died implements Screen {
     private HighScoreManager hsm;
     private CurrentScoreManager csm;
 
-    public Died(MainClass main){
+    public Died(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
+        aoi = pAOI;
         hsm = new HighScoreManager();
         csm = new CurrentScoreManager();
     }
@@ -126,14 +127,14 @@ public class Died implements Screen {
                 if (buttons[x][y].sprite.contains(Gdx.input.getX(), Gdx.input.getY())) {
                     if(x == 0 && y == 0){
                         if(Gdx.input.justTouched()){
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new Main(main));
+                            ((Game) Gdx.app.getApplicationListener()).setScreen(new Main(main, aoi));
                             Buttons.isFalse = false;
 
                         }
                     }
                     if(x == 1 && y == 1){
                         if(Gdx.input.justTouched()) {
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new Difficulty(main));
+                            ((Game) Gdx.app.getApplicationListener()).setScreen(new Difficulty(main, aoi));
                             Buttons.isFalse = false;
                         }
                     }
@@ -141,7 +142,7 @@ public class Died implements Screen {
             }
         }
         if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
         }
     }
 

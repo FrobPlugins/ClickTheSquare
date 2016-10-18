@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class SplashScreen implements Screen {
     final MainClass main;
+    AndroidOnlyInterface aoi;
     private Texture texture = new Texture(Gdx.files.internal("assets/Splash2.png"));
     private Image splashImage = new Image(texture);
     private Stage stage;
@@ -19,8 +20,9 @@ public class SplashScreen implements Screen {
     adController adController;
 
 
-    public SplashScreen(MainClass main, adController adController){
+    public SplashScreen(MainClass main, adController adController, AndroidOnlyInterface pAOI){
         this.main = main;
+        aoi = pAOI;
         this.adController = adController;
         splashImage.setWidth(Gdx.graphics.getWidth());
         splashImage.setHeight(Gdx.graphics.getHeight());
@@ -64,7 +66,7 @@ public class SplashScreen implements Screen {
                             Assets.loadSkinWood();
                         }
                         Fonts.loadFonts();
-                        ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+                        ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                     }
                 })));
     }

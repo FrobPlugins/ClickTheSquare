@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.Random;
 
 public class Main implements Screen {
+	AndroidOnlyInterface aoi;
 	static Buttons[][] buttons;
 	float tileSize;
 	float boardOffsetX;
@@ -39,8 +40,9 @@ public class Main implements Screen {
 	static int randX;
 	static int randY;
 
-	public Main(MainClass main){
+	public Main(MainClass main, AndroidOnlyInterface pAOI){
 		this.main = main;
+		aoi = pAOI;
 		score = 0;
 		hsm = new HighScoreManager();
 		csm = new CurrentScoreManager();
@@ -247,7 +249,7 @@ public class Main implements Screen {
 			}
 			csm.setCurrentScore(score);
 			Assets.sound_died.play(1.0f);
-			((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main));
+			((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
 		}
 		if(score == StarterScore){
 			StarterScore += 50;
@@ -263,7 +265,7 @@ public class Main implements Screen {
 			showTimer += delta;
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-			((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
+			((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
 		}
 	}
 
