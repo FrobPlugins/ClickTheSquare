@@ -18,7 +18,7 @@ import com.badlogic.gdx.math.Vector3;
  * Created by Gebruiker on 2-2-2016.
  */
 public class MenuDifficulty implements Screen {
-    AndroidOnlyInterface aoi;
+
     Texture background;
     MainClass main;
     GlyphLayout glyphLayout;
@@ -37,9 +37,8 @@ public class MenuDifficulty implements Screen {
     float boardOffsetX;
     float boardOffsetY;
 
-    public MenuDifficulty(MainClass main, AndroidOnlyInterface pAOI){
+    public MenuDifficulty(MainClass main){
         this.main = main;
-        aoi = pAOI;
     }
 
     @Override
@@ -147,7 +146,7 @@ public class MenuDifficulty implements Screen {
                 HighScoreManager.setDifficulty(0);
                 selectedDifficulty = true;
                 System.out.println("Set Easy");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
             }
             if(rect_normal.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setNormal();
@@ -155,7 +154,7 @@ public class MenuDifficulty implements Screen {
                 HighScoreManager.setDifficulty(1);
                 selectedDifficulty = true;
                 System.out.println("Set Normal");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
             }
             if(rect_hard.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setHard();
@@ -163,11 +162,11 @@ public class MenuDifficulty implements Screen {
                 HighScoreManager.setDifficulty(2);
                 selectedDifficulty = true;
                 System.out.println("Set Hard");
-                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
             }
         }
         if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main));
         }
     }
 

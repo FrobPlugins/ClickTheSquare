@@ -79,15 +79,14 @@ public class MainMenu implements Screen {
         difficulty.setText(Fonts.font5, "Difficulty");
         SkinSelector.setText(Fonts.font5, "Skin Selector");
 
-        play_rect = new Rectangle(buttons[0][0].x, buttons[0][0].y,buttons[0][0].x + buttons[0][0].getWidth(),buttons[0][0].y + buttons[0][0].getHeight());
-        difficulty_rect = new Rectangle(buttons[0][1].x, buttons[0][1].y,buttons[0][1].x + buttons[0][1].getWidth(),buttons[0][1].y + buttons[0][1].getHeight());
-        SkinSelector_rect = new Rectangle(buttons[0][2].x, buttons[0][2].y,buttons[0][2].x + buttons[0][2].getWidth(),buttons[0][2].y + buttons[0][2].getHeight());
-        Gdx.input.setCatchBackKey(true);
+        play_rect = new Rectangle(buttons[0][0].x, buttons[0][0].y,buttons[0][0].getWidth(), buttons[0][0].getHeight());
+        difficulty_rect = new Rectangle(buttons[0][1].x, buttons[0][1].y,buttons[0][1].getWidth(), buttons[0][1].getHeight());
+        SkinSelector_rect = new Rectangle(buttons[0][2].x, buttons[0][2].y,buttons[0][2].getWidth(), buttons[0][2].getHeight());
     }
 
     @Override
     public void show() {
-
+        Gdx.input.setCatchBackKey(true);
     }
 
     @Override
@@ -141,7 +140,7 @@ public class MainMenu implements Screen {
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new SkinsMenu(main, aoi));
             }
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
             Gdx.app.exit();
         }
     }

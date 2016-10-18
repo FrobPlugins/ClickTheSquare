@@ -34,7 +34,7 @@ public class SplashScreen implements Screen {
 
     public void loadMainMenu(){
         splashImage.addAction(Actions.sequence(
-                Actions.fadeOut(1f), Actions.run(new Runnable() {
+                Actions.fadeIn(2f), Actions.run(new Runnable() {
                     public void run() {
                         Assets.loadAssets();
                         ss = new SkinSaver();
@@ -65,6 +65,7 @@ public class SplashScreen implements Screen {
                         if(SkinSaver.getSkin() == SkinList.wood){
                             Assets.loadSkinWood();
                         }
+
                         Fonts.loadFonts();
                         ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
                     }
@@ -101,18 +102,6 @@ public class SplashScreen implements Screen {
 
     public void show() {
        // adController.hideBannerAd();
-        /*splashImage.addAction(Actions.sequence(Actions.alpha(0)
-                , Actions.fadeIn(1f), Actions.run(new Runnable() {
-            public void run() {
-                splashImage.addAction(Actions.sequence(
-                        Actions.delay(0f), Actions.run(new Runnable() {
-                    public void run() {
 
-
-                    }
-
-                })));
-            }
-        })));*/
     }
 }
