@@ -1,6 +1,5 @@
 package com.frobplugins.clickthesquare;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -8,8 +7,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Created by Gebruiker on 2-2-2016.
+ * This app is copyrighted by FrobPlugins
  */
+
 public class MainClass extends Game implements ApplicationListener {
     AndroidOnlyInterface aoi;
     OrthographicCamera camera;

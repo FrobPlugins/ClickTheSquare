@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
 public class HighScoreManager {
-
     private static Preferences prefs;
 
     public HighScoreManager(){

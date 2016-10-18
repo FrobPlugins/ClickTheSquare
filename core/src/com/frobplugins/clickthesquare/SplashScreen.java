@@ -10,6 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+/**
+ * This app is copyrighted by FrobPlugins
+ */
+
 public class SplashScreen implements Screen {
     final MainClass main;
     AndroidOnlyInterface aoi;
@@ -18,7 +22,6 @@ public class SplashScreen implements Screen {
     private Stage stage;
     private SkinSaver ss;
     adController adController;
-
 
     public SplashScreen(MainClass main, adController adController, AndroidOnlyInterface pAOI){
         this.main = main;

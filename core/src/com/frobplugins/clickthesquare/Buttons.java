@@ -1,21 +1,16 @@
 package com.frobplugins.clickthesquare;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector3;
 
 import java.util.Random;
 
-import javafx.scene.input.MouseButton;
-
 /**
- * Created by Gebruiker on 27-1-2016.
+ * This app is copyrighted by FrobPlugins
  */
+
 public class Buttons extends Sprite {
     float ID;
     float x, y, width, height;

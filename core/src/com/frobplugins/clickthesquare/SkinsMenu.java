@@ -7,8 +7,11 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
-public class SkinsMenu implements Screen{
+/**
+ * This app is copyrighted by FrobPlugins
+ */
 
+public class SkinsMenu implements Screen{
     MainClass main;
     GlyphLayout glyphLayout;
     Buttons[][] buttons;

@@ -1,10 +1,10 @@
 package com.frobplugins.clickthesquare;
 
 /**
- * Created by Gebruiker on 27-1-2016.
+ * This app is copyrighted by FrobPlugins
  */
-public class IDList {
 
+public class IDList {
     public static final int Button_on = 1;
     public static final int Button_off = 2;
 

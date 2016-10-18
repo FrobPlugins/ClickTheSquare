@@ -9,8 +9,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Rectangle;
 
-public class MainMenu implements Screen {
+/**
+ * This app is copyrighted by FrobPlugins
+ */
 
+public class MainMenu implements Screen {
     MainClass main;
     AndroidOnlyInterface aoi;
     Buttons[][] buttons;

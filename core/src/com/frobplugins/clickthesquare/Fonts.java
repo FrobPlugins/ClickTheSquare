@@ -6,8 +6,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 /**
- * Created by Gebruiker on 26-2-2016.
+ * This app is copyrighted by FrobPlugins
  */
+
 public class Fonts {
 
     static FreeTypeFontGenerator gen1;

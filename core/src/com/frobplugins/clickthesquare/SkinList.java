@@ -1,10 +1,10 @@
 package com.frobplugins.clickthesquare;
 
 /**
- * Created by Gebruiker on 11-5-2016.
+ * This app is copyrighted by FrobPlugins
  */
-public class SkinList {
 
+public class SkinList {
     public static final int gold = 1;
     public static final int green = 2;
     public static final int light_green = 3;

@@ -3,8 +3,11 @@ package com.frobplugins.clickthesquare;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
-public class CurrentScoreManager {
+/**
+ * This app is copyrighted by FrobPlugins
+ */
 
+public class CurrentScoreManager {
     private static Preferences prefs;
 
     public CurrentScoreManager(){

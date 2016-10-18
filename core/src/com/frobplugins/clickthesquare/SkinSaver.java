@@ -4,10 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
 /**
- * Created by Gebruiker on 11-5-2016.
+ * This app is copyrighted by FrobPlugins
  */
-public class SkinSaver {
 
+public class SkinSaver {
     private static Preferences prefs;
 
     public SkinSaver(){
@@ -29,6 +29,7 @@ public class SkinSaver {
         prefs.flush();
     }
 
-    public static int getSkin() { return prefs.getInteger("skin"); }
-
+    public static int getSkin() {
+        return prefs.getInteger("skin");
+    }
 }

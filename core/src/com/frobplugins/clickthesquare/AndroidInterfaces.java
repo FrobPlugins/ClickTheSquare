@@ -1,5 +1,9 @@
 package com.frobplugins.clickthesquare;
 
+/**
+ * This app is copyrighted by FrobPlugins
+ */
+
 public interface AndroidInterfaces {
-    public void toast(final String t);
+    void toast(final String t);
 }
