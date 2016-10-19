@@ -31,8 +31,7 @@ public class SplashScreen implements Screen {
         splashImage.setHeight(Gdx.graphics.getHeight());
         stage = new Stage(new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         stage.addActor(splashImage);
-
-       loadMainMenu();
+        loadMainMenu();
     }
 
     public void loadMainMenu(){

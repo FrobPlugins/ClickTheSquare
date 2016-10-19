@@ -1,6 +1,7 @@
 package com.frobplugins.clickthesquare;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -12,6 +13,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Logger;
 
 /**
  * This app is copyrighted by FrobPlugins
@@ -41,10 +46,14 @@ public class AndroidLauncher extends AndroidApplication implements adController,
 				Log.i(TAG, "Ad Loaded...");
 			}
 		});
+
+		String android_id = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+		String deviceId = md5(android_id).toUpperCase();
+
 		adView.setAdSize(AdSize.SMART_BANNER);
 		adView.setAdUnitId("ca-app-pub-7808832744890830/7862838305");
 		AdRequest builder = new AdRequest.Builder()
-				.addTestDevice("C5119907348EA3C64BB392A2328EDEB0")
+				.addTestDevice(deviceId)
 				.build();
 		RelativeLayout.LayoutParams adParams = new RelativeLayout.LayoutParams(
 				RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -55,6 +64,29 @@ public class AndroidLauncher extends AndroidApplication implements adController,
 		layout.addView(adView, adParams);
 		adView.loadAd(builder);
 		setContentView(layout);
+	}
+
+	public static final String md5(final String s) {
+		try {
+			// Create MD5 Hash
+			MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+			digest.update(s.getBytes());
+			byte messageDigest[] = digest.digest();
+
+			// Create Hex String
+			StringBuffer hexString = new StringBuffer();
+			for (int i = 0; i < messageDigest.length; i++) {
+				String h = Integer.toHexString(0xFF & messageDigest[i]);
+				while (h.length() < 2)
+					h = "0" + h;
+				hexString.append(h);
+			}
+			return hexString.toString();
+
+		} catch (NoSuchAlgorithmException e) {
+			Log.w(TAG,e);
+		}
+		return "";
 	}
 
 	@Override
