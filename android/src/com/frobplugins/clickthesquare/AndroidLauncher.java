@@ -13,6 +13,10 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
+/**
+ * This app is copyrighted by FrobPlugins
+ */
+
 public class AndroidLauncher extends AndroidApplication implements adController, AndroidInterfaces, AndroidOnlyInterface{
 	private static final String TAG = "AndroidLauncher";
 	protected AdView adView;
