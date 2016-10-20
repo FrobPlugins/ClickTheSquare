@@ -24,14 +24,17 @@ public class Died implements Screen {
     GlyphLayout glyphLayout3;
     GlyphLayout glyphLayout4;
     GlyphLayout glyphLayout5;
+    GlyphLayout money;
     private HighScoreManager hsm;
     private CurrentScoreManager csm;
+    private MoneyManager moneyManager;
 
     public Died(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
         aoi = pAOI;
         hsm = new HighScoreManager();
         csm = new CurrentScoreManager();
+        moneyManager = new MoneyManager();
     }
 
     @Override
@@ -64,6 +67,7 @@ public class Died implements Screen {
         glyphLayout3 = new GlyphLayout();
         glyphLayout4 = new GlyphLayout();
         glyphLayout5 = new GlyphLayout();
+        money = new GlyphLayout();
 
         Gdx.input.setCatchBackKey(true);
     }
@@ -80,8 +84,10 @@ public class Died implements Screen {
                 + "Expert: " + HighScoreManager.getHighScoreExpert());
         glyphLayout4.setText(Fonts.font1, "Difficulty");
         glyphLayout5.setText(Fonts.font1, "Retry");
+        money.setText(Fonts.font6, "Money: " + moneyManager.getDecryptedMoney());
         float w = glyphLayout.width;
         float w2 = glyphLayout2.width;
+        float money_w = money.width;
         main.batch.setProjectionMatrix(main.camera.combined);
         main.batch.begin();
         if(SkinSaver.getSkin() == SkinList.gold){
@@ -118,6 +124,7 @@ public class Died implements Screen {
         Fonts.font1.draw(main.batch, glyphLayout3, ((main.screen_width/4) - (glyphLayout3.width/2)), ((buttons[1][1].y + buttons[1][1].height) - (buttons[1][1].height/2)) - glyphLayout3.height/2);
         Fonts.font1.draw(main.batch, glyphLayout4, ((main.screen_width/4 * 3) - (glyphLayout4.width/2)), ((buttons[1][1].y + buttons[1][1].height) - (buttons[1][1].height/2)) - glyphLayout4.height/2);
         Fonts.font1.draw(main.batch, glyphLayout5, ((main.screen_width/4) - (glyphLayout5.width/2)), ((buttons[1][0].y + buttons[1][0].height) - (buttons[1][0].height/2)) - glyphLayout5.height/2);
+        Fonts.font6.draw(main.batch, money, (main.screen_width - money_w) / 2, 240);
         main.batch.end();
         for (int x=0;x<buttons.length;x++){
             for(int y=0;y<buttons[0].length;y++) {
@@ -150,6 +157,8 @@ public class Died implements Screen {
         Fonts.font3.dispose();
         Fonts.font4.dispose();
         Fonts.font5.dispose();
+        Fonts.font6.dispose();
+        Fonts.font7.dispose();
         Assets.sound_addTime.dispose();
         Assets.sound_count.dispose();
         Assets.sound_died.dispose();

@@ -34,6 +34,7 @@ public class Main implements Screen {
 	private SkinSaver ss;
 	private HighScoreManager hsm;
 	private CurrentScoreManager csm;
+	private MoneyManager moneyManager;
 	private int StarterScore = 50;
 	private static float timer2 = 0;
 	float showTimer = 0;
@@ -49,6 +50,7 @@ public class Main implements Screen {
 		score = 0;
 		hsm = new HighScoreManager();
 		csm = new CurrentScoreManager();
+		moneyManager = new MoneyManager();
 		ss = new SkinSaver();
 		timer = 30;
 		viewport = new StretchViewport(main.screen_width, main.screen_height, main.camera);
@@ -251,6 +253,7 @@ public class Main implements Screen {
 				}
 			}
 			csm.setCurrentScore(score);
+			moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()+score);
 			Assets.sound_died.play(1.0f);
 			((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
 		}

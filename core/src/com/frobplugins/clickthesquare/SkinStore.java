@@ -11,10 +11,17 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
  * This app is copyrighted by FrobPlugins
  */
 
-public class SkinsMenu implements Screen{
+public class SkinStore implements Screen{
     MainClass main;
     GlyphLayout glyphLayout;
     GlyphLayout money;
+    GlyphLayout greenPrice;
+    GlyphLayout lightgreenPrice;
+    GlyphLayout purplePrice;
+    GlyphLayout goldPrice;
+    GlyphLayout woodPrice;
+    GlyphLayout naturePrice;
+    GlyphLayout metalPrice;
     Buttons[][] buttons;
 
     float tileSizeX;
@@ -28,7 +35,7 @@ public class SkinsMenu implements Screen{
 
     AndroidOnlyInterface aoi;
 
-    public SkinsMenu(MainClass main, AndroidOnlyInterface pAOI){
+    public SkinStore(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
         aoi = pAOI;
     }
@@ -47,10 +54,31 @@ public class SkinsMenu implements Screen{
             }
         }
         glyphLayout = new GlyphLayout();
-        glyphLayout.setText(Fonts.font2, "Skin Selector");
+        glyphLayout.setText(Fonts.font2, "Skin Store");
 
         money = new GlyphLayout();
         money.setText(Fonts.font6, "Money: " + moneyManager.getDecryptedMoney());
+
+        greenPrice = new GlyphLayout();
+        greenPrice.setText(Fonts.font7, "50");
+
+        lightgreenPrice = new GlyphLayout();
+        lightgreenPrice.setText(Fonts.font7, "100");
+
+        purplePrice = new GlyphLayout();
+        purplePrice.setText(Fonts.font7, "200");
+
+        goldPrice = new GlyphLayout();
+        goldPrice.setText(Fonts.font7, "250");
+
+        woodPrice = new GlyphLayout();
+        woodPrice.setText(Fonts.font7, "500");
+
+        naturePrice = new GlyphLayout();
+        naturePrice.setText(Fonts.font7, "750");
+
+        metalPrice = new GlyphLayout();
+        metalPrice.setText(Fonts.font7, "1000");
 
         buttons[0][0].ID = IDList.Button_off;
         buttons[1][0].ID = IDList.Button_off_green;
@@ -68,6 +96,22 @@ public class SkinsMenu implements Screen{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         float glyphLayout_w = glyphLayout.width;
         float money_w = money.width;
+        float greenPrice_w = greenPrice.width;
+        float lightgreenPrice_w = lightgreenPrice.width;
+        float purplePrice_w = purplePrice.width;
+        float goldPrice_w = goldPrice.width;
+        float woodPrice_w = woodPrice.width;
+        float naturePrice_w = naturePrice.width;
+        float metalPrice_w = metalPrice.width;
+
+        float greenPrice_h = greenPrice.height;
+        float lightgreenPrice_h = lightgreenPrice.height;
+        float purplePrice_h = purplePrice.height;
+        float goldPrice_h = goldPrice.height;
+        float woodPrice_h = woodPrice.height;
+        float naturePrice_h = naturePrice.height;
+        float metalPrice_h = metalPrice.height;
+
         main.batch.setProjectionMatrix(main.camera.combined);
         main.batch.begin();
         if(SkinSaver.getSkin() == SkinList.gold){
@@ -96,6 +140,7 @@ public class SkinsMenu implements Screen{
         }
         Fonts.font2.draw(main.batch, glyphLayout, ((main.screen_width - glyphLayout_w) / 2), 30);
         Fonts.font6.draw(main.batch, money, ((main.screen_width - money_w) / 2), 240);
+
         for (int x=0;x<buttons.length;x++){
             for(int y=0;y<buttons[0].length;y++){
                 buttons[x][y].Draw(main.batch);
@@ -104,24 +149,31 @@ public class SkinsMenu implements Screen{
 
         if(skinStoreManager.checkIfGoldUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[0][1].x + buttons[0][1].width/2 - ((tileSizeX/4)*3)/2, buttons[0][1].y + buttons[0][1].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, goldPrice, buttons[0][1].x + buttons[0][1].width/2 - goldPrice_w/2, buttons[0][1].y + buttons[0][1].height/2 - goldPrice_h/2);
         }
         if(skinStoreManager.checkIfGreenUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[1][0].x + buttons[1][0].width/2 - ((tileSizeX/4)*3)/2, buttons[1][0].y + buttons[1][0].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, greenPrice, buttons[1][0].x + buttons[1][0].width/2 - greenPrice_w/2, buttons[1][0].y + buttons[1][0].height/2 - greenPrice_h/2);
         }
         if(skinStoreManager.checkIfLightGreenUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[2][0].x + buttons[2][0].width/2 - ((tileSizeX/4)*3)/2, buttons[2][0].y + buttons[2][0].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, lightgreenPrice, buttons[2][0].x + buttons[2][0].width/2 - lightgreenPrice_w/2, buttons[2][0].y + buttons[2][0].height/2 - lightgreenPrice_h/2);
         }
         if(skinStoreManager.checkIfMetalUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[3][1].x + buttons[3][1].width/2 - ((tileSizeX/4)*3)/2, buttons[3][1].y + buttons[3][1].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, metalPrice, buttons[3][1].x + buttons[3][1].width/2 - metalPrice_w/2, buttons[3][1].y + buttons[3][1].height/2 - metalPrice_h/2);
         }
         if(skinStoreManager.checkIfNatureUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[2][1].x + buttons[2][1].width/2 - ((tileSizeX/4)*3)/2, buttons[2][1].y + buttons[2][1].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, naturePrice, buttons[2][1].x + buttons[2][1].width/2 - naturePrice_w/2, buttons[2][1].y + buttons[2][1].height/2 - naturePrice_h/2);
         }
         if(skinStoreManager.checkIfPurpleUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[3][0].x + buttons[3][0].width/2 - ((tileSizeX/4)*3)/2, buttons[3][0].y + buttons[3][0].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, purplePrice, buttons[3][0].x + buttons[3][0].width/2 - purplePrice_w/2, buttons[3][0].y + buttons[3][0].height/2 - purplePrice_h/2);
         }
         if(skinStoreManager.checkIfWoodUnlocked() == 0){
             main.batch.draw(Assets.sprite_lock, buttons[1][1].x + buttons[1][1].width/2 - ((tileSizeX/4)*3)/2, buttons[1][1].y + buttons[1][1].height/2 - ((tileSizeX/4)*3)/2, (tileSizeX/4)*3, (tileSizeY/4)*3);
+            Fonts.font7.draw(main.batch, woodPrice, buttons[1][1].x + buttons[1][1].width/2 - woodPrice_w/2, buttons[1][1].y + buttons[1][1].height/2 - woodPrice_h/2);
         }
 
         main.batch.end();

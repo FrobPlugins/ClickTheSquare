@@ -26,6 +26,12 @@ public class Fonts {
     static FreeTypeFontGenerator gen5;
     static FreeTypeFontGenerator.FreeTypeFontParameter par5;
 
+    static FreeTypeFontGenerator gen6;
+    static FreeTypeFontGenerator.FreeTypeFontParameter par6;
+
+    static FreeTypeFontGenerator gen7;
+    static FreeTypeFontGenerator.FreeTypeFontParameter par7;
+
     static BitmapFont font1;
 
     static BitmapFont font2;
@@ -36,11 +42,15 @@ public class Fonts {
 
     static BitmapFont font5;
 
+    static BitmapFont font6;
+
+    static BitmapFont font7;
+
     public static void loadFonts(){
         gen1 = new FreeTypeFontGenerator(Gdx.files.internal("assets/6809 chargen.ttf"));
         par1 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         par1.borderWidth = Gdx.graphics.getWidth() * 2 / 600;
-        par1.size = (Gdx.graphics.getWidth() * 24) / 600;
+        par1.size = Gdx.graphics.getWidth() * 24 / 600;
         par1.flip = true;
         par1.color = Color.CORAL;
         par1.borderColor = Color.CLEAR;
@@ -57,8 +67,8 @@ public class Fonts {
 
         gen3 = new FreeTypeFontGenerator(Gdx.files.internal("assets/6809 chargen.ttf"));
         par3 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        par3.borderWidth = Gdx.graphics.getWidth() * 4 / 600;
         par3.size = Gdx.graphics.getWidth() * 50 / 600;
-        par3.borderWidth = (Gdx.graphics.getWidth() * 4) / 600;
         par3.borderColor = Color.BLACK;
         par3.color = Color.CORAL;
         par3.flip = true;
@@ -66,7 +76,7 @@ public class Fonts {
 
         gen4 = new FreeTypeFontGenerator(Gdx.files.internal("assets/6809 chargen.ttf"));
         par4 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        par4.borderWidth = (Gdx.graphics.getWidth() * 5) / 600;
+        par4.borderWidth = Gdx.graphics.getWidth() * 5 / 600;
         par4.size = (Gdx.graphics.getWidth() * 60) / 600;
         par4.flip = true;
         par4.color = Color.RED;
@@ -82,10 +92,30 @@ public class Fonts {
         par5.borderColor = Color.BLACK;
         font5 = gen5.generateFont(par5);
 
+        gen6 = new FreeTypeFontGenerator(Gdx.files.internal("assets/6809 chargen.ttf"));
+        par6 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        par6.borderWidth = Gdx.graphics.getWidth() * 4 / 600;
+        par6.size = Gdx.graphics.getWidth() * 40 / 600;
+        par6.flip = true;
+        par6.color = Color.GOLD;
+        par6.borderColor = Color.BLACK;
+        font6 = gen6.generateFont(par6);
+
+        gen7 = new FreeTypeFontGenerator(Gdx.files.internal("assets/6809 chargen.ttf"));
+        par7 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        par7.borderWidth = Gdx.graphics.getWidth() * 2 / 600;
+        par7.size = (Gdx.graphics.getWidth() * 24) / 600;
+        par7.flip = true;
+        par7.color = Color.GOLD;
+        par7.borderColor = Color.BLACK;
+        font7 = gen7.generateFont(par7);
+
         gen1.dispose();
         gen2.dispose();
         gen3.dispose();
         gen4.dispose();
         gen5.dispose();
+        gen6.dispose();
+        gen7.dispose();
     }
 }

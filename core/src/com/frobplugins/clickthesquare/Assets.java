@@ -38,6 +38,8 @@ public class Assets {
     static Texture button_off_nature;
     static Texture button_off_metal;
 
+    static Texture lock;
+
     static Texture button_on_red;
     static Texture button_off_red;
 
@@ -54,6 +56,8 @@ public class Assets {
     static Sprite sprite_background_nature;
     static Sprite sprite_background_metal;
 
+    static Sprite sprite_lock;
+
 
     public static void loadAssets() {
         button_on_red = new Texture(Gdx.files.internal("assets/water/Button_on_red.png"));
@@ -67,6 +71,10 @@ public class Assets {
         button_off_purple = new Texture(Gdx.files.internal("assets/purple/button_off.png"));
         button_off = new Texture(Gdx.files.internal("assets/water/Button_off.png"));
         button_off_wood = new Texture(Gdx.files.internal("assets/wood/Button_off.png"));
+
+        lock = new Texture(Gdx.files.internal("assets/Lock.png"));
+        sprite_lock = new Sprite(lock);
+        sprite_lock.flip(false, true);
 
         sound_died = Gdx.audio.newSound(Gdx.files.internal("assets/Died.wav"));
         sound_count = Gdx.audio.newSound(Gdx.files.internal("assets/Count.wav"));

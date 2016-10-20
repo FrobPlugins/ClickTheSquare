@@ -33,6 +33,8 @@ public class MenuDifficulty implements Screen {
     float boardOffsetX;
     float boardOffsetY;
 
+    HighScoreManager hsm = new HighScoreManager();
+
     public MenuDifficulty(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
         aoi = pAOI;
@@ -140,7 +142,7 @@ public class MenuDifficulty implements Screen {
             if(rect_easy.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setEasy();
                 Assets.sound_addTime.play(1.0f);
-                HighScoreManager.setDifficulty(0);
+                hsm.setDifficulty(0);
                 selectedDifficulty = true;
                 System.out.println("Set Easy");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
@@ -148,7 +150,7 @@ public class MenuDifficulty implements Screen {
             if(rect_normal.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setNormal();
                 Assets.sound_addTime.play(1.0f);
-                HighScoreManager.setDifficulty(1);
+                hsm.setDifficulty(1);
                 selectedDifficulty = true;
                 System.out.println("Set Normal");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
@@ -156,7 +158,7 @@ public class MenuDifficulty implements Screen {
             if(rect_hard.contains(Gdx.input.getX(), Gdx.input.getY())){
                 setHard();
                 Assets.sound_addTime.play(1.0f);
-                HighScoreManager.setDifficulty(2);
+                hsm.setDifficulty(2);
                 selectedDifficulty = true;
                 System.out.println("Set Hard");
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));

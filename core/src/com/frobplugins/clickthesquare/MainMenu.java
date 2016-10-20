@@ -25,14 +25,16 @@ public class MainMenu implements Screen {
     GlyphLayout play;
     GlyphLayout difficulty;
     GlyphLayout SkinSelector;
+    GlyphLayout SkinStore;
     Rectangle play_rect;
     Rectangle difficulty_rect;
     Rectangle SkinSelector_rect;
+    Rectangle SkinStore_rect;
 
     public MainMenu(MainClass main, AndroidOnlyInterface pAOI){
         this.main = main;
         aoi = pAOI;
-        buttons = new Buttons[1][3];
+        buttons = new Buttons[1][4];
 
         tileSizeY = (Gdx.graphics.getWidth() / buttons[0].length) / 1.5f;
         tileSizeX = Gdx.graphics.getWidth() / buttons.length;
@@ -76,15 +78,18 @@ public class MainMenu implements Screen {
         play = new GlyphLayout();
         difficulty = new GlyphLayout();
         SkinSelector = new GlyphLayout();
+        SkinStore = new GlyphLayout();
 
         glyphLayout.setText(Fonts.font3, "ClickTheSquare");
         play.setText(Fonts.font5, "Play");
         difficulty.setText(Fonts.font5, "Difficulty");
         SkinSelector.setText(Fonts.font5, "Skin Selector");
+        SkinStore.setText(Fonts.font5, "Skin Store");
 
         play_rect = new Rectangle(buttons[0][0].x, buttons[0][0].y,buttons[0][0].getWidth(), buttons[0][0].getHeight());
         difficulty_rect = new Rectangle(buttons[0][1].x, buttons[0][1].y,buttons[0][1].getWidth(), buttons[0][1].getHeight());
         SkinSelector_rect = new Rectangle(buttons[0][2].x, buttons[0][2].y,buttons[0][2].getWidth(), buttons[0][2].getHeight());
+        SkinStore_rect = new Rectangle(buttons[0][3].x, buttons[0][3].y,buttons[0][3].getWidth(), buttons[0][3].getHeight());
     }
 
     @Override
@@ -131,6 +136,7 @@ public class MainMenu implements Screen {
         Fonts.font5.draw(main.batch, play, ((main.screen_width - play.width) / 2), ((buttons[0][0].y + buttons[0][0].height) - (buttons[0][0].height/2)) - play.height/2);
         Fonts.font5.draw(main.batch, difficulty, ((main.screen_width - difficulty.width) / 2), ((buttons[0][1].y + buttons[0][1].height) - (buttons[0][1].height/2)) - difficulty.height/2);
         Fonts.font5.draw(main.batch, SkinSelector, ((main.screen_width - SkinSelector.width) / 2), ((buttons[0][2].y + buttons[0][2].height) - (buttons[0][2].height/2)) - SkinSelector.height/2);
+        Fonts.font5.draw(main.batch, SkinStore, ((main.screen_width - SkinStore.width) / 2), ((buttons[0][3].y + buttons[0][3].height) - (buttons[0][3].height/2)) - SkinStore.height/2);
         main.batch.end();
         if(Gdx.input.justTouched()) {
             if (play_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
@@ -141,6 +147,9 @@ public class MainMenu implements Screen {
             }
             if (SkinSelector_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new SkinsMenu(main, aoi));
+            }
+            if (SkinStore_rect.contains(Gdx.input.getX(), Gdx.input.getY())) {
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new SkinStore(main, aoi));
             }
         }
         if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
@@ -155,7 +164,13 @@ public class MainMenu implements Screen {
 
     @Override
     public void dispose() {
-
+        Fonts.font1.dispose();
+        Fonts.font2.dispose();
+        Fonts.font3.dispose();
+        Fonts.font4.dispose();
+        Fonts.font5.dispose();
+        Fonts.font6.dispose();
+        Fonts.font7.dispose();
     }
 
     @Override
