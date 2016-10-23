@@ -211,7 +211,7 @@ public class SkinsMenu implements Screen{
             }
         }
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
+        if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
             ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
         }
     }

@@ -34,7 +34,7 @@ public class MoneyManager {
         prefs.flush();
     }
 
-    public static void encryptAndSaveMoney(int decryptedMoney){
+    public void encryptAndSaveMoney(int decryptedMoney){
         encrypt(decryptedMoney);
     }
 

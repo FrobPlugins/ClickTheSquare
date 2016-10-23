@@ -183,79 +183,118 @@ public class SkinStore implements Screen{
                 for(int y=0;y<buttons[0].length;y++){
                     if(buttons[x][y].sprite.contains(Gdx.input.getX(), Gdx.input.getY())) {
                         if (buttons[x][y].ID == IDList.Button_off_gold) {
-                            if(skinStoreManager.checkIfGoldUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.gold);
-                                Assets.loadSkinGold();
-                                Assets.unloadSkins(SkinList.gold, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfGoldUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 250) {
+                                    skinStoreManager.unlockGold();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-250);
+                                    SkinSaver.setSkin(SkinList.gold);
+                                    Assets.loadSkinGold();
+                                    Assets.unloadSkins(SkinList.gold, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_green) {
-                            if(skinStoreManager.checkIfGreenUnlocked() == 1){
-                                SkinSaver.setSkin(SkinList.green);
-                                Assets.loadSkinGreen();
-                                Assets.unloadSkins(SkinList.green, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfGreenUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 50) {
+                                    skinStoreManager.unlockGreen();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-50);
+                                    SkinSaver.setSkin(SkinList.green);
+                                    Assets.loadSkinGreen();
+                                    Assets.unloadSkins(SkinList.green, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_light_green) {
-                            if(skinStoreManager.checkIfLightGreenUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.light_green);
-                                Assets.loadSkinLightGreen();
-                                Assets.unloadSkins(SkinList.light_green, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfLightGreenUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 100) {
+                                    skinStoreManager.unlockLightGreen();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-100);
+                                    SkinSaver.setSkin(SkinList.light_green);
+                                    Assets.loadSkinLightGreen();
+                                    Assets.unloadSkins(SkinList.light_green, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_metal) {
-                            if(skinStoreManager.checkIfMetalUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.metal);
-                                Assets.loadSkinMetal();
-                                Assets.unloadSkins(SkinList.metal, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfMetalUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 1000) {
+                                    skinStoreManager.unlockMetal();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-1000);
+                                    SkinSaver.setSkin(SkinList.metal);
+                                    Assets.loadSkinMetal();
+                                    Assets.unloadSkins(SkinList.metal, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_nature) {
-                            if(skinStoreManager.checkIfNatureUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.nature);
-                                Assets.loadSkinNature();
-                                Assets.unloadSkins(SkinList.nature, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfNatureUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 750) {
+                                    skinStoreManager.unlockNature();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-750);
+                                    SkinSaver.setSkin(SkinList.nature);
+                                    Assets.loadSkinNature();
+                                    Assets.unloadSkins(SkinList.nature, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off_purple) {
-                            if(skinStoreManager.checkIfPurpleUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.purple);
-                                Assets.loadSkinPurple();
-                                Assets.unloadSkins(SkinList.purple, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfPurpleUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 200) {
+                                    skinStoreManager.unlockPurple();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-200);
+                                    SkinSaver.setSkin(SkinList.purple);
+                                    Assets.loadSkinPurple();
+                                    Assets.unloadSkins(SkinList.purple, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                         if (buttons[x][y].ID == IDList.Button_off) {
-                            SkinSaver.setSkin(SkinList.water);
-                            Assets.loadSkinWater();
-                            Assets.unloadSkins(SkinList.water, oldSkin);
-                            ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            aoi.toast("Already unlocked");
                         }
                         if (buttons[x][y].ID == IDList.Button_off_wood) {
-                            if(skinStoreManager.checkIfWoodUnlocked() == 1) {
-                                SkinSaver.setSkin(SkinList.wood);
-                                Assets.loadSkinWood();
-                                Assets.unloadSkins(SkinList.wood, oldSkin);
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                            if(skinStoreManager.checkIfWoodUnlocked() == 0) {
+                                if(moneyManager.getDecryptedMoney() >= 500) {
+                                    skinStoreManager.unlockWood();
+                                    moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()-500);
+                                    SkinSaver.setSkin(SkinList.wood);
+                                    Assets.loadSkinWood();
+                                    Assets.unloadSkins(SkinList.wood, oldSkin);
+                                    ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
+                                }else{
+                                    aoi.toast("Insufficient money");
+                                }
                             }else{
-                                aoi.toast("Not unlocked yet");
+                                aoi.toast("Already unlocked");
                             }
                         }
                     }
@@ -263,7 +302,7 @@ public class SkinStore implements Screen{
             }
         }
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
+        if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
             ((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
         }
     }

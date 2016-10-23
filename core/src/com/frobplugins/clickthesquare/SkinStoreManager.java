@@ -40,34 +40,43 @@ public class SkinStoreManager {
         if(!prefs.contains("metalUnlocked")){
             prefs.putInteger("metalUnlocked", 0);
         }
+
+        prefs.flush();
     }
 
-    public static void unlockGreen(){
+    public void unlockGreen(){
         prefs.putInteger("greenUnlocked", 1);
+        prefs.flush();
     }
 
     public static void unlockLightGreen(){
         prefs.putInteger("lightgreenUnlocked", 1);
+        prefs.flush();
     }
 
     public static void unlockPurple(){
         prefs.putInteger("purpleUnlocked", 1);
+        prefs.flush();
     }
 
-    public static void unlockGold(){
+    public void unlockGold(){
         prefs.putInteger("goldUnlocked", 1);
+        prefs.flush();
     }
 
     public static void unlockWood(){
         prefs.putInteger("woodUnlocked", 1);
+        prefs.flush();
     }
 
     public static void unlockNature(){
         prefs.putInteger("natureUnlocked", 1);
+        prefs.flush();
     }
 
     public static void unlockMetal(){
         prefs.putInteger("metalUnlocked", 1);
+        prefs.flush();
     }
 
 

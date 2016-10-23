@@ -51,6 +51,7 @@ public class Main implements Screen {
 		hsm = new HighScoreManager();
 		csm = new CurrentScoreManager();
 		moneyManager = new MoneyManager();
+		Buttons.isFalse = false;
 		ss = new SkinSaver();
 		timer = 30;
 		viewport = new StretchViewport(main.screen_width, main.screen_height, main.camera);
@@ -255,6 +256,7 @@ public class Main implements Screen {
 			csm.setCurrentScore(score);
 			moneyManager.encryptAndSaveMoney(moneyManager.getDecryptedMoney()+score);
 			Assets.sound_died.play(1.0f);
+
 			((Game) Gdx.app.getApplicationListener()).setScreen(new Died(main, aoi));
 		}
 		if(score == StarterScore){
@@ -269,9 +271,6 @@ public class Main implements Screen {
 			showTimer = 0;
 		}else if(showText == true){
 			showTimer += delta;
-		}
-		if(Gdx.input.isKeyPressed(Input.Keys.BACK)){
-			((Game) Gdx.app.getApplicationListener()).setScreen(new MainMenu(main, aoi));
 		}
 	}
 
